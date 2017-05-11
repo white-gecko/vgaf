@@ -1,0 +1,76 @@
+{
+    "root": "test",
+	"templates":[{
+        "id": "test",
+        "type":"group",
+        "nodetype":"RESOURCE",
+        "content":[
+            {
+                "type":"choice",
+                "nodetype":"URI",
+                "property":"http://www.w3.org/TR/rdf-schema/type",
+                "cardinality": {"min": 0, "pref": 1},
+                "label":{"en":"Type"},
+                "choices": [{
+                    "value": "http://xmlns.com/foaf/0.1/Person",
+                    "label": {"en":"Person"}
+                },{
+                    "value": "http://xmlns.com/foaf/0.1/Agent",
+                    "label": {"en":"Agent"}
+                }]
+            }, {
+                "type":"text",
+                "nodetype":"LANGUAGE_LITERAL",
+                "property":"http://xmlns.com/foaf/0.1/name",
+                "cardinality": {"min": 0, "pref": "1"},
+                "label":{"en":"Name"},
+                "description":{"en":"Name of the Agent"}
+            }, {
+                "type":"text",
+                "nodetype":"LANGUAGE_LITERAL",
+                "property":"http://xmlns.com/foaf/0.1/firstName",
+                "cardinality": {"min": 0, "pref": "1"},
+                "label":{"en":"First Name"},
+                "description":{"en":"First name of the agent"}
+            }, {
+                "type":"text",
+                "nodetype":"LANGUAGE_LITERAL",
+                "property":"http://xmlns.com/foaf/0.1/lastName",
+                "cardinality": {"min": 0, "pref": "1"},
+                "label":{"en":"Last Name", "de": "Nachname"},
+                "description":{"en":"Last name of the agent"}
+            }, {
+                "type":"choice",
+                "nodetype":"LITERAL",
+                "property":"http://xmlns.com/foaf/0.1/gender",
+                "cardinality": {"min": 1, "max": 1},
+                "styles": [ "horizontalRadioButtons" ],
+                "label":{"en":"Gender"},
+                "description":{"en":"Gender of the agent"},
+                "choices": [{
+                    "value": "female",
+                    "label": {"en":"female"}
+                },{
+                    "value": "male",
+                    "label": {"en":"male"}
+                },{
+                    "value": "both",
+                    "label": {"en":"both"}
+                },{
+                    "value": "nothing",
+                    "label": {"en":"nothing"}
+                },{
+                    "value": "unknown",
+                    "label": {"en":"unspecified"}
+                }]
+            }, {
+                "type":"text",
+                "nodetype":"URL",
+                "property":"http://xmlns.com/foaf/0.1/knows",
+                "cardinality": {"min": 0, "pref": "1"},
+                "label":{"en":"Knows"},
+                "description":{"en":"Agents known by this agent"}
+            }
+        ]
+    }]
+}
