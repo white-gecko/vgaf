@@ -8,7 +8,7 @@
             {
                 "type":"choice",
                 "nodetype":"URI",
-                "property":"http://www.w3.org/TR/rdf-schema/type",
+                "property":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                 "cardinality": {"min": 0, "pref": 1},
                 "label":{"en":"Type"},
                 "choices": [{
