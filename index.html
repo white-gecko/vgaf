@@ -5,7 +5,6 @@
     <link type="text/css" href="release/dijit/themes/claro/claro.css" rel="stylesheet" />
     <link type="text/css" href="release/rdforms/view/resources/rdforms.css" rel="stylesheet" />
     <link type="text/css" href="release/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link type="text/css" href="release/bootstrap/dist/css/bootstrap-responsive.css" rel="stylesheet">
     <script src="release/dojo/dojo.js"></script>
     <script src="release/jquery/dist/jquery.js"></script>
 </head>
@@ -24,8 +23,9 @@ require([
     'dojo/json',                          //Json parser
     'dojo/text!./sampleRDF.json',         //The sample RDF
     'dojo/text!./sampleTemplate.json',    //The sample template
+    'dojo/text!./configuration.json',     //The editor configuration RDF
     'dojo/domReady!'             //Wait until the dom is ready.
-], function(Graph, converters, jsonld, ItemStore, Editor, json, sampleRDF, sampleTemplate) {
+], function(Graph, converters, jsonld, ItemStore, Editor, json, sampleRDF, sampleTemplate, configuration) {
 
     /**
      * @return {Object} a plain RDF JSON object without the additional artifacts created by this Graph class.
@@ -167,6 +167,20 @@ require([
                 }
             });
         };
+    }
+
+    configuration = json.parse(configuration);
+
+    if (configuration.endpointLocation != undefined && configuration.endpointLocation != "") {
+        $('.editorForm input[name="endpointLocation"]').val(configuration.endpointLocation);
+    }
+
+    if (configuration.graphUri != undefined && configuration.graphUri != "") {
+        $('.editorForm input[name="graphUri"]').val(configuration.graphUri);
+    }
+
+    if (configuration.resourceUri != undefined && configuration.resourceUri != "") {
+        $('.editorForm input[name="resourceUri"]').val(configuration.resourceUri);
     }
 
     edit = new QuitEdit();

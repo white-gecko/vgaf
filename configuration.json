@@ -1,0 +1,5 @@
+{
+    "endpointLocation": "http://localhost:8080/sparql",
+    "graphUri": "http://example.org/graph/",
+    "resourceUri": "http://example.org/about"
+}
