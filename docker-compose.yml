@@ -1,0 +1,16 @@
+version: '2'
+services:
+    vgaf_data:
+        image: vgaf
+
+    vgaf:
+        image: nginx
+        volumes_from:
+            - vgaf_data
+        ports:
+           - "8080:80"
+        environment:
+            - NGINX_PORT=80
+            - "endpointlocation=http://localhost/sparql"
+        command: /bin/bash -c "envsubst < /usr/share/nginx/html/configuration.json.template > /usr/share/nginx/html/configuration.json && nginx -g 'daemon off;'"
+

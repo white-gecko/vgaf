@@ -9,13 +9,20 @@
     "amd"
   ],
   "dependencies": {
-    "dojo": "1.9.3",
-    "dijit": "1.9.3",
+    "dojo": "1.12.2",
+    "dijit": "1.12.2",
     "util": "dojo-util#1.9.3",
     "rdfjson": "https://bitbucket.org/metasolutions/rdfjson.git#develop",
     "jsonld": "*",
-    "bootstrap": "*"
+    "bootstrap": "*",
+    "rdfjson": "https://bitbucket.org/metasolutions/rdfjson.git#1.1",
+    "rdforms": "https://bitbucket.org/metasolutions/rdforms.git#develop"
   },
+  "resolutions": {
+    "dojo": "1.12.2",
+    "dijit": "1.12.2",
+    "rdfjson": "1.1"
+},
   "keywords": [
     "rdf",
     "RDFS",
