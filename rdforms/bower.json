@@ -1,0 +1,47 @@
+{
+  "name": "rdforms",
+  "version": "5.1.0-SNAPSHOT",
+  "authors": [
+    "Matthias Palmér <matthias@metasolutions.se>"
+  ],
+  "description": "RDForms is a library that generates HTML-forms based on templates for editing and presenting RDF.",
+  "moduleType": [
+    "amd"
+  ],
+  "dependencies": {
+    "dojo": "1.12.2",
+    "dijit": "1.12.2",
+    "rdfjson": "https://bitbucket.org/metasolutions/rdfjson.git#develop",
+    "di18n": "https://bitbucket.org/metasolutions/di18n.git#develop",
+    "bootstrap-amd": "latest",
+    "fontawesome": "latest",
+    "jsonld": "*",
+    "jquery": "latest",
+    "sizzle": "~2.3.0",
+    "moment": "latest",
+    "fuelux": "latest",
+    "select2": "4.0.0",
+    "requirejs": "latest",
+    "requirejs-i18n": "latest",
+    "requirejs-text": "latest"
+  },
+  "keywords": [
+    "rdf",
+    "RDFS",
+    "application profile",
+    "DSP",
+    "HTML forms",
+    "template driven"
+  ],
+  "license": "LGPL",
+  "homepage": "http://rdforms.com",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "libs"
+  ],
+  "resolutions": {
+    "dojo": "1.12.2",
+    "dijit": "1.12.2"
+  }
+}
