@@ -1,32 +1,18 @@
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" href="release/dijit/themes/claro/claro.css" rel="stylesheet" />
-    <link type="text/css" href="release/rdforms/view/resources/rdforms.css" rel="stylesheet" />
-    <link type="text/css" href="release/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <script src="release/dojo/dojo.js"></script>
-    <script src="release/jquery/dist/jquery.js"></script>
-</head>
-<body class="claro">
-<script type="text/javascript">
 "use strict";
 
 var edit;
 
 require([
     'rdfjson/Graph',              //Rdfjson Graph API
-    'rdfjson/formats/converters',
-    'jsonld/js/jsonld',
+    'jsonld/jsonld',
     'rdforms/template/ItemStore', //Stores all the RDForm templates
     'rdforms/view/Editor',        //The editor User interface
     'dojo/json',                          //Json parser
-    'dojo/text!./sampleRDF.json',         //The sample RDF
-    'dojo/text!./sampleTemplate.json',    //The sample template
-    'dojo/text!./configuration.json',     //The editor configuration RDF
+    'dojo/text!../sampleRDF.json',         //The sample RDF
+    'dojo/text!../sampleTemplate.json',    //The sample template
+    'dojo/text!../configuration.json',     //The editor configuration RDF
     'dojo/domReady!'             //Wait until the dom is ready.
-], function(Graph, converters, jsonld, ItemStore, Editor, json, sampleRDF, sampleTemplate, configuration) {
-
+], function(Graph, jsonld, ItemStore, Editor, json, sampleRDF, sampleTemplate, configuration) {
     /**
      * @return {Object} a plain RDF JSON object without the additional artifacts created by this Graph class.
      * The returned object is suitable for serilization and communicated with other systems.
@@ -191,32 +177,3 @@ require([
     });
 
 });
-</script>
-<div class="container">
-<div class="row">
-    <h1>Form</h1>
-<form class="editorForm">
-     <div class="form-group">
-        <label for="endpointLocation">SPARQL Endpoint Location</label>
-        <input type="text" class="form-control" value="http://localhost:8080/sparql" name="endpointLocation" />
-    </div>
-    <div class="form-group">
-        <label for="graphUri">Graph URI</label>
-        <input type="text" class="form-control" value="http://example.org/graph/" name="graphUri" />
-    </div>
-    <div class="form-group">
-        <label for="resourceUri">Resource URI</label>
-        <input type="text" class="form-control"  value="http://example.org/about" name="resourceUri" />
-    </div>
-    <button type="button" onClick="edit.openEditorForResource(this.form)" class="btn btn-primary">openEditor</button>
-    <button type="button" onClick="edit.log(this.form)" class="btn btn-info">log</button>
-    <button type="submit" class="btn btn-success">submit</button>
-</form>
-</div>
-<div class="row">
-    <div id="editorContainer"></div>
-</div>
-</div>
-<script src="release/bootstrap/dist/js/bootstrap.js"></script>
-</body>
-</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="release/style.css" rel="stylesheet" />
+    <link type="text/css" href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="release/all.js"></script>
+    <!-- <script src="release/dojo/dojo.js"></script> -->
+    <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="quitedit.js"></script>
+</head>
+
+<body class="claro">
+<div class="container">
+<div class="row">
+    <h1>Form</h1>
+<form class="editorForm">
+     <div class="form-group">
+        <label for="endpointLocation">SPARQL Endpoint Location</label>
+        <input type="text" class="form-control" value="http://localhost:8080/sparql" name="endpointLocation" />
+    </div>
+    <div class="form-group">
+        <label for="graphUri">Graph URI</label>
+        <input type="text" class="form-control" value="http://example.org/graph/" name="graphUri" />
+    </div>
+    <div class="form-group">
+        <label for="resourceUri">Resource URI</label>
+        <input type="text" class="form-control"  value="http://example.org/about" name="resourceUri" />
+    </div>
+    <button type="button" onClick="edit.openEditorForResource(this.form)" class="btn btn-primary">openEditor</button>
+    <button type="button" onClick="edit.log(this.form)" class="btn btn-info">log</button>
+    <button type="submit" class="btn btn-success">submit</button>
+</form>
+</div>
+<div class="row">
+    <div id="editorContainer"></div>
+</div>
+</div>
+<script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,19 +1,17 @@
 FROM node:alpine
 
-# from blinkmobile/bower MAINTAINER Ron Waldon <jokeyrhyme@gmail.com>
+RUN npm install -g grunt && apk add --no-cache git
 
-RUN npm install -g bower
-RUN apk add --no-cache git
+WORKDIR /usr/share/nginx/html
 
-COPY configuration.json /usr/share/nginx/html/
-COPY configuration.json.template /usr/share/nginx/html/
-COPY index.html /usr/share/nginx/html/
-COPY sampleRDF.json /usr/share/nginx/html/
-COPY sampleTemplate.json /usr/share/nginx/html/
-COPY .bowerrc /usr/share/nginx/html/
-COPY bower.json /usr/share/nginx/html/
+RUN git clone --branch develop --depth 1 https://bitbucket.org/metasolutions/rdforms.git . && \
+  git submodule init && \
+  git submodule update
 
-WORKDIR /usr/share/nginx/html/
-RUN bower --allow-root install
+COPY rdforms .
+
+RUN npm install --allow-root && grunt build
+
+COPY data/* ./
 
 VOLUME /usr/share/nginx/html
